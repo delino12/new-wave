@@ -1,0 +1,8 @@
+{
+	"name":"New Wave",
+	"description":"Transfer of wallet funds app",
+	"repository":"https://github.com/delino12/new-wave.git",
+	"logo":"new-wave.heroku.com/node.svg",
+	"keyword": ["node","express","static"],
+	"image":"heroku/nodejs"
+}
