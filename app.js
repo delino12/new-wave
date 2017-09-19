@@ -128,7 +128,9 @@ app.post("/pay-wallet", function(req, res){
 
 
 app.get("/pay-status", function (req, res){
+	console.log(payRes);
 	res.render('pay-to-wallet-status', {payRes});
+
 });
 
 
