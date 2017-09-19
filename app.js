@@ -127,10 +127,25 @@ app.post("/pay-wallet", function(req, res){
 });
 
 
-app.get("/pay-status", function (req, res){
-	console.log(payRes);
-	res.render('pay-to-wallet-status', {payRes});
 
+
+app.get("/pay-status", function (req, res){
+
+	if(payRes.status == "error"){
+		var fedResponse = {
+			"error" : payRes.status,
+			"code" : payRes.code,
+			"message" : "Transaction Fail.... please verify for user Api Rights"
+		};
+		
+		res.render('transaction-error', {fedResponse});
+	}
+
+	if(payRes.status == "success"){
+		res.render('pay-to-wallet-status', {payRes});
+	}
+
+	console.log(payRes);
 });
 
 
