@@ -150,9 +150,11 @@ app.get(function (req, res){
 });
 
 
+// set port
+app.set("port", (process.env.PORT || 3000));
+
 // start express server
-var PORT = 3000;
-app.listen(PORT, function (){
+app.listen(app.get("port"), function (){
 	console.log("Localhost server has started....");
 	console.log("Localhost is running on port: "+PORT);
 	console.log("Press Ctrl+C to terminate server");
