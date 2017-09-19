@@ -115,9 +115,6 @@ app.post("/pay-wallet", function(req, res){
       "redirecturl": "https://wavy-transfer-rules.com"
  	};
 
- 	payRes = params;
-
- 	/*
 	unirest.post('https://moneywave.herokuapp.com/v1/transfer')
 	.headers({'Content-Type': 'application/json', 'Authorization': authToken})
 	.send(params)
@@ -125,7 +122,6 @@ app.post("/pay-wallet", function(req, res){
 		payRes = response.body;
 		console.log(response.body);
 	});
-	*/
 
 	res.redirect("/pay-status");
 });
@@ -136,17 +132,10 @@ app.get("/pay-status", function (req, res){
 });
 
 
-
 // default error 404 link
 app.get(function (req, res){
 	res.status(404);
 	res.render('404');
-});
-
-// default internal error 500 link
-app.get(function (req, res){
-	res.status(500);
-	res.render('500');
 });
 
 
