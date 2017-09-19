@@ -1,0 +1,35 @@
+{
+  "name": "wavy",
+  "version": "1.0.0",
+  "description": "Wavy Nodejs for Payment and Transfer of Funds ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.10.8",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.10",
+    "unirest": "^0.5.1"
+  },
+  "author": "Ekpoto-Liberty",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node":"8.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delino12/wavy-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/delino12/wavy-node/issues"
+  },
+  "homepage": "https://github.com/delino12/wavy-node#readme"
+}

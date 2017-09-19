@@ -1,0 +1,94 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h1 class="lead">Make payment now</h1>
+			<div class="thumbnail">
+				<div class="panel-body">
+					<div id="form-div">
+						<form method="post" action="/pay-wallet">
+							<input type="hidden" name="__csrf" value="7glkhaSHLDkw88303"> <!--generated token-->
+							<input type="hidden" name="__token" value="{{ body.token }}"> <!--Api Auth token-->
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="firstname"><span class="small">Firstname</span></label>
+										<input type="text" name="firstname" placeholder="First name" required="" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="lastname"><span class="small">Lastname</span></label>
+										<input type="text" name="lastname" placeholder="Last name" required="" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="email"><span class="small">Email</span></label>
+										<input type="email" name="email" placeholder="someone@example.com" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="phone"><span class="small">Phone</span></label>
+										<input type="text" pattern="[0-9]*" name="phone" placeholder="08030XXXX" maxlength="12" class="form-control" required="">
+									</div>
+									<div class="form-group">
+										<label for="amount"><span class="small">Amount</span></label>
+										<input type="number" name="amount" placeholder="100.00" required="" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="card_no"><span class="small"><i class="fa fa-cc"></i> Card No</span></label>
+										<input type="text" pattern="[0-9]*" name="card_no" placeholder="53646677784767784" required="" class="form-control">
+									</div>
+									
+									<div class="form-group">
+										<label for="exp_month"><span class="small">Card Exp</span></label>
+										<table style="width: 150px;">
+											<tr>
+												<td><input type="text" name="exp_month" pattern="[0-9]*" placeholder="MM" required="" class="form-control" maxlength="2"></td>
+												<td> &rarr; </td>
+												<td><input type="text" name="exp_year" pattern="[0-9]*" placeholder="YYYY" required="" class="form-control" maxlength="4"></td>
+											</tr>
+										</table>
+									</div>
+								
+									<div class="form-group">
+										<label for="cvv"><span class="small">CVV</span></label>
+										<input type="password" name="cvv" placeholder="***" required="" pattern="[0-9]*" maxlength="3" class="form-control" style="width: 70px;">
+									</div>
+									<div class="form-group">
+										<label for="pin"><span class="small">Pin</span></label>
+										<input type="password" name="pin" placeholder="****" required="" pattern="[0-9]*" maxlength="4" class="form-control" style="width: 100px;">
+									</div>
+								</div>
+							</div>
+							<hr />
+							<button class="btn btn-primary col-md-6">DEPOSIT</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<h1 class="lead"><i class="fa fa-light"></i> Instructions</h1>
+			
+					<ul class="list-group">
+						<li class="list-group-item active">How to make a quick deposit </li>
+						<li class="list-group-item">1. Specify depositor's <b>First</b> and <b>Last</b> names </li>
+						<li class="list-group-item">2. Specify depositor's <b>email</b>, <b>phone</b> number and amount </li>
+						<li class="list-group-item">3. Specify <b>amount</b> to be deposited </li>
+						<li class="list-group-item">4. Enter Credit Card information, such as <b>Card</b> No, Card Expiring <b>Month</b> and <b>Year</b></li>
+						<li class="list-group-item">5. Enter the 3 last visible digit code at your card CVV </li>
+						<li class="list-group-item">6. Lastly click on "DEPOSIT" button to process transaction </li>
+					</ul>
+			
+			
+		</div>
+		<div class="col-md-3">
+			<h1 class="lead">API Status</h1>
+			
+					<ul class="list-group">
+						<li class="list-group-item active">Money-Wave API Status</li>
+						<li class="list-group-item"><b>Status:</b> {{ body.status }}</li>
+						<li class="list-group-item"><b>Daily Transaction Limit:</b> {{ body.config.daily_limit }}</li>
+					</ul>
+				
+		</div>
+	</div>
+</div>

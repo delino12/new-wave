@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h1 class="lead">Transaction Status</h1>
+			<div class="table-div">
+				<table class="table">
+					<tr>
+						<td>Firstname</td>
+						<td>{{ payRes.firstname }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<h1 class="lead">API Status</h1>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					Our Service will be using FlutterWave API
+				</div>
+				<div class="panel-body">
+					<table>
+						<tr>
+							<td>Status</td>
+							<td>{{ payRes.status }}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

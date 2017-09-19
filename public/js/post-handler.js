@@ -1,0 +1,4 @@
+
+function postTopic(){
+	return false;
+}
