@@ -56,9 +56,24 @@ app.get("/", function (req, res){
 * Runs route
 */
 
+// get dashboard 
+app.get("/dashboard", function(req, res){
+	res.render("dashboard");
+});
+
+// wallet to account 
+app.get("/wallet-to-account", function(req, res){
+	res.render("wallet-to-account");
+});
+
 // transfer to wallet
 app.get("/transfer-to-account", function (req, res){
-	res.render('transfer-to-account');
+	res.render("transfer-to-account");
+});
+
+// wallet to wallet account
+app.get("/wallet-to-wallet", function(req, res){
+	res.render("wallet-to-wallet");
 });
 
 // pay to wallet account
@@ -137,7 +152,7 @@ app.get("/pay-status", function (req, res){
 			"code" : payRes.code,
 			"message" : "Transaction Fail.... please verify for user Api Rights"
 		};
-		
+
 		res.render('transaction-error', {fedResponse});
 	}
 
