@@ -8,7 +8,7 @@ var express = require("express");
 var unirest = require("unirest");
 var handlebars = require("express-handlebars");
 var bodyParser = require('body-parser');
-
+var flash = require('connect-flash');
 
 // set express module
 app = express();
@@ -43,21 +43,39 @@ unirest.post('https://moneywave.herokuapp.com/v1/merchant/verify')
 	console.log("response data is ready !");
 });
 
-var adminUser = "dragon";
-var adminPass = "glass";
-
-var clientUser = "testers";
-var clientPass = "points";
-
 // login first
 app.get("/", function (req, res){
 	res.render('login');
+	console.log('login page reach');
 });
 
 // default URI
-app.get("/home", function (req, res){	
-	res.render('home', {body});
-	console.log("default page loaded...");
+app.post("/login-user", function (req, res, next){
+	
+	var adminUser = "dragonglass@hng.fun";
+	var adminPass = "glass";
+
+	var clientUser = "client@hng.fun";
+	var clientPass = "tester";
+
+	if(req.body.email == "dragonglass@hng.fun" && req.body.password == "glass"){
+		res.redirect("/admin-home");
+	}
+
+	if(req.body.email == "client@hng.fun" && req.body.password == "tester"){
+		res.redirect("/home");
+	}
+
+	res.redirect("/error-page");
+	next();
+});
+
+// show user error
+app.get("/error-page", function (req, res){
+	var error = {
+		"msg":"invalid username/password, this user does not exit !"
+	};
+	res.render("error-page", {error});
 });
 
 
@@ -66,29 +84,50 @@ app.get("/home", function (req, res){
 * Runs route
 */
 
+// get admin
+app.get("/admin-home", function (req, res){
+	res.render("admin-home");
+});
+
+// get client
+app.get("/home", function (req, res){
+	res.render("home", {body});
+});
+
+
 // get dashboard 
 app.get("/dashboard", function(req, res){
 	res.render("dashboard");
+	console.log('dashboard page reach');
 });
 
 // wallet to account 
 app.get("/wallet-to-account", function(req, res){
 	res.render("wallet-to-account");
+	console.log('wallet page reach');
 });
 
 // transfer to wallet
 app.get("/transfer-to-account", function (req, res){
 	res.render("transfer-to-account");
+	console.log('transfer page reach');
 });
 
 // wallet to wallet account
 app.get("/wallet-to-wallet", function(req, res){
 	res.render("wallet-to-wallet");
+	console.log('wallet page reach');
 });
 
 // pay to wallet account
 app.get("/pay-to-wallet", function(req, res){
 	res.render('pay-to-wallet', {body});
+	console.log('payment page reach');
+});
+
+
+app.get("/logout", function(req, res){
+	res.redirect('/');
 });
 
 
