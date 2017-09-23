@@ -43,9 +43,19 @@ unirest.post('https://moneywave.herokuapp.com/v1/merchant/verify')
 	console.log("response data is ready !");
 });
 
+var adminUser = "dragon";
+var adminPass = "glass";
+
+var clientUser = "testers";
+var clientPass = "points";
+
+// login first
+app.get("/", function (req, res){
+	res.render('login');
+});
 
 // default URI
-app.get("/", function (req, res){	
+app.get("/home", function (req, res){	
 	res.render('home', {body});
 	console.log("default page loaded...");
 });
@@ -140,9 +150,6 @@ app.post("/pay-wallet", function(req, res){
 
 	res.redirect("/pay-status");
 });
-
-
-
 
 app.get("/pay-status", function (req, res){
 

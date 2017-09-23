@@ -12,8 +12,8 @@
     "heroku"
   ],
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "express": "^4.10.8",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
     "unirest": "^0.5.1"
@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {},
   "engines": {
-    "node":"^8.1.2"
+    "node": "^8.1.2"
   },
   "repository": {
     "type": "git",
